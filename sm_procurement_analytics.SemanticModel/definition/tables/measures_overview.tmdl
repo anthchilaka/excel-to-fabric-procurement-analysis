@@ -1,0 +1,96 @@
+table measures_overview
+	lineageTag: e8d77731-6bef-438b-8299-fe4c13187e95
+	sourceLineageTag: [dbo].[measures_overview]
+
+	measure 'Excess Inventory Rate' =
+			
+			VAR ExcessUnits =
+			    SUMX(
+			        NATURALINNERJOIN( gold_fact_stock, gold_fact_item_site_setup ),
+			        MAX( 0, gold_fact_stock[Unrestricted] - gold_fact_item_site_setup[maximum_level] )
+			    )
+			VAR TotalUnits = SUM( gold_fact_stock[Unrestricted] )
+			RETURN
+			    DIVIDE( ExcessUnits, TotalUnits )
+		lineageTag: aaa2957a-8260-4174-86bf-6e4bf0b80975
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Reorder Frequency' =
+			
+			VAR ItemsBelowReorder =
+			    CALCULATE(
+			        DISTINCTCOUNT( gold_fact_item_site_setup[item_no] ),
+			        FILTER(
+			            gold_fact_item_site_setup,
+			            gold_fact_item_site_setup[reorder_point] > 0
+			        ),
+			        TREATAS( VALUES( gold_fact_stock[item_no] ), gold_fact_item_site_setup[item_no] )
+			    )
+			RETURN
+			    ItemsBelowReorder
+		formatString: 0
+		lineageTag: 8ce20bde-8a55-432a-9b03-edd939d75ae5
+
+		changedProperty = Name
+
+	measure 'Currency Fluctuation Impact' =
+			
+			VAR NativeValue = SUM( gold_fact_stock[Value_Unrestricted] )
+			VAR NormalizedValue = SUM( gold_fact_stock[Value_Unrestricted_GBP] )
+			RETURN
+			    NormalizedValue - NativeValue
+		lineageTag: 0301e669-1a57-4873-93bb-dfb5aa3aa724
+
+		formatStringDefinition =
+				SWITCH(
+				    SELECTEDVALUE( 'Currency Display'[Currency Display] ),
+				    "Native", "£#,##0.00",
+				    "Normalized (GBP)", "£#,##0.00",
+				    "£#,##0.00"
+				)
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Supplier Performance (Reversal Rate Proxy)' =
+			
+			VAR Reversals =
+			    CALCULATE(
+			        COUNTROWS( gold_fact_movements ),
+			        gold_fact_movements[mt] IN { 312, 762 }
+			    )
+			VAR Receipts =
+			    CALCULATE(
+			        COUNTROWS( gold_fact_movements ),
+			        gold_fact_movements[mt] = 311
+			    )
+			RETURN
+			    DIVIDE( Reversals, Receipts )
+		formatString: 0
+		lineageTag: e1eb285a-a368-47cb-8cc6-38ecb53ba448
+
+		changedProperty = Name
+
+	column id
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a55874be-6b1a-48f9-9394-2c7040bffe67
+		sourceLineageTag: id
+		summarizeBy: sum
+		sourceColumn: id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition measures_overview = entity
+		mode: directLake
+		source
+			entityName: measures_overview
+			expressionSource: 'DirectLake - lh_procurement_analytics'
+

@@ -74,3 +74,17 @@ for tbl in GOLD_TABLES:
 # META   "language": "python",
 # META   "language_group": "synapse_pyspark"
 # META }
+
+# CELL ********************
+
+from pyspark.sql import Row
+
+spark.createDataFrame([Row(id=1)]).write.format("delta").mode("overwrite").saveAsTable("measures_overview")
+spark.createDataFrame([Row(id=1)]).write.format("delta").mode("overwrite").saveAsTable("measures_opportunity")
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }

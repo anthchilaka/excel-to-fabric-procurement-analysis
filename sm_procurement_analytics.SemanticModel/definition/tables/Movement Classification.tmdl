@@ -1,0 +1,45 @@
+table 'Movement Classification'
+	lineageTag: f23c4a78-ab9c-4da8-86a9-ab186b5bc3fb
+
+	calculationGroup
+
+		calculationItem Fast =
+				CALCULATE(
+				    SELECTEDMEASURE(),
+				    gold_fact_item_site_setup[movement_status] = "Fast"
+				)
+
+		calculationItem Medium =
+				CALCULATE(
+				    SELECTEDMEASURE(),
+				    gold_fact_item_site_setup[movement_status] = "Medium"
+				)
+
+		calculationItem Slow =
+				CALCULATE(
+				    SELECTEDMEASURE(),
+				    gold_fact_item_site_setup[movement_status] = "Slow"
+				)
+
+		calculationItem 'No Mover' =
+				CALCULATE(
+				    SELECTEDMEASURE(),
+				    gold_fact_item_site_setup[movement_status] = "No Mover"
+				)
+
+		calculationItem Non-moving =
+				CALCULATE(
+				    SELECTEDMEASURE(),
+				    gold_fact_item_site_setup[movement_status] = "Non-moving"
+				)
+
+	column Name
+		dataType: string
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+	column Ordinal
+		dataType: int64
+		isHidden
+		sourceColumn: Ordinal
+

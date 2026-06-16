@@ -1,0 +1,13 @@
+table 'Status Column'
+	lineageTag: a5e94d75-91b2-4630-b49e-625b0a0b3ffe
+
+	defaultDetailRowsDefinition =
+			{
+			    ("Item Status (MS)", NAMEOF( gold_fact_item_site_setup[item_status] ), 0),
+			    ("Movement Status (Recomputed)", NAMEOF( gold_fact_item_site_setup[movement_status] ), 1)
+			}
+
+	partition 'New Table' = query
+		source
+			dataSource: 'New Provider Data Source'
+

@@ -1,0 +1,13 @@
+table 'Currency Display'
+	lineageTag: 913987f4-e37d-41bb-a9a0-37df65187db0
+
+	defaultDetailRowsDefinition =
+			{
+			    ("Native", NAMEOF( gold_fact_stock[Value_Unrestricted] ), 0),
+			    ("Normalized (GBP)", NAMEOF( gold_fact_stock[Value_Unrestricted_GBP] ), 1)
+			}
+
+	partition 'New Table' = query
+		source
+			dataSource: 'New Provider Data Source'
+

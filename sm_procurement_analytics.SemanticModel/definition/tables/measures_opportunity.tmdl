@@ -1,0 +1,88 @@
+table measures_opportunity
+	lineageTag: 490d9e14-0208-4fc8-b5d0-4bb6b0ca666d
+	sourceLineageTag: [dbo].[measures_opportunity]
+
+	measure 'Inventory Turnover' =
+			
+			VAR IssuedQty =
+			    CALCULATE(
+			        SUMX( gold_fact_movements, ABS( gold_fact_movements[quantity] ) ),
+			        gold_fact_movements[mt] IN { 411, 471 }
+			    )
+			VAR AvgStockQty = AVERAGE( gold_fact_stock[Unrestricted] )
+			RETURN
+			    DIVIDE( IssuedQty, AvgStockQty )
+		formatString: 0
+		lineageTag: f74fcbff-8308-4d83-b570-da640fcc33aa
+
+		changedProperty = Name
+
+	measure 'Stock-Out Rate' =
+			
+			VAR ItemsAtZero =
+			    CALCULATE(
+			        DISTINCTCOUNT( gold_fact_stock[item_no] ),
+			        gold_fact_stock[Unrestricted] <= 0
+			    )
+			VAR TotalItems = DISTINCTCOUNT( gold_fact_stock[item_no] )
+			RETURN
+			    DIVIDE( ItemsAtZero, TotalItems )
+		lineageTag: 91da5353-0521-4288-b0a7-a8d442cc00cf
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inventory Accuracy' =
+			
+			VAR FlaggedRows =
+			    CALCULATE(
+			        COUNTROWS( gold_fact_item_site_setup ),
+			        gold_fact_item_site_setup[recommendation_flag] <> "No flag"
+			    )
+			VAR TotalRows = COUNTROWS( gold_fact_item_site_setup )
+			RETURN
+			    1 - DIVIDE( FlaggedRows, TotalRows )
+		lineageTag: 3fe490c2-d4dd-47fe-bed7-3b2005708498
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure DIO =
+			
+			VAR AvgStockValue = AVERAGE( gold_fact_stock[Value_Unrestricted_GBP] )
+			VAR DailyIssueValue =
+			    DIVIDE(
+			        CALCULATE(
+			            SUMX( gold_fact_movements, ABS( gold_fact_movements[quantity] ) ),
+			            gold_fact_movements[mt] IN { 411, 471 }
+			        ),
+			        365
+			    )
+			RETURN
+			    DIVIDE( AvgStockValue, DailyIssueValue )
+		formatString: 0
+		lineageTag: f5b243ff-3139-4722-adb0-acb59e693d96
+
+		changedProperty = Name
+
+	column id
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d1b19182-1428-4d21-901a-2c4ae8e32b71
+		sourceLineageTag: id
+		summarizeBy: sum
+		sourceColumn: id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition measures_opportunity = entity
+		mode: directLake
+		source
+			entityName: measures_opportunity
+			expressionSource: 'DirectLake - lh_procurement_analytics'
+
