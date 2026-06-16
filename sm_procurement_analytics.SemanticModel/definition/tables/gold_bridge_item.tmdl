@@ -1,0 +1,46 @@
+table gold_bridge_item
+	lineageTag: cdd4b524-a02e-4e23-827c-c653cd5dd255
+	sourceLineageTag: [dbo].[gold_bridge_item]
+
+	column MPN
+		dataType: string
+		lineageTag: 05a9362d-35cd-4c55-a2d5-6ae647156dfe
+		sourceLineageTag: MPN
+		summarizeBy: none
+		sourceColumn: MPN
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_no
+		dataType: string
+		lineageTag: 67449751-765f-4687-bc37-3cb35fd5fc3d
+		sourceLineageTag: item_no
+		summarizeBy: none
+		sourceColumn: item_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: string
+		lineageTag: 273adbab-d7da-44f7-b55c-7a387b277362
+		sourceLineageTag: company_id
+		summarizeBy: none
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_description
+		dataType: string
+		lineageTag: 3d1518f0-bdd4-4418-bf70-8ae34f91ceb2
+		sourceLineageTag: item_description
+		summarizeBy: none
+		sourceColumn: item_description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_bridge_item = entity
+		mode: directLake
+		source
+			entityName: gold_bridge_item
+			expressionSource: 'DirectLake - lh_procurement_analytics'
+

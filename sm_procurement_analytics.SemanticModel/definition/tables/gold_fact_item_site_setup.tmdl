@@ -1,0 +1,131 @@
+table gold_fact_item_site_setup
+	lineageTag: 1c15b705-1ad3-4f54-8c07-c11c36360333
+	sourceLineageTag: [dbo].[gold_fact_item_site_setup]
+
+	column item_no
+		dataType: string
+		lineageTag: bad06b09-55fe-4861-b284-e1bff2991113
+		sourceLineageTag: item_no
+		summarizeBy: none
+		sourceColumn: item_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: string
+		lineageTag: 4f27f24d-af5f-486d-8c37-5b4a6f412045
+		sourceLineageTag: company_id
+		summarizeBy: none
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column site
+		dataType: string
+		lineageTag: 3f03bae4-b8a8-4eed-a5dd-841ccf2d350c
+		sourceLineageTag: site
+		summarizeBy: none
+		sourceColumn: site
+
+		annotation SummarizationSetBy = Automatic
+
+	column minimum_level
+		dataType: int64
+		formatString: 0
+		lineageTag: 02bb579f-0c39-4a55-a5e9-bdc1063ee57f
+		sourceLineageTag: minimum_level
+		summarizeBy: sum
+		sourceColumn: minimum_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column reorder_point
+		dataType: int64
+		formatString: 0
+		lineageTag: e4b72ebc-5a6a-4c4d-a472-769d29825891
+		sourceLineageTag: reorder_point
+		summarizeBy: sum
+		sourceColumn: reorder_point
+
+		annotation SummarizationSetBy = Automatic
+
+	column fixed_lot
+		dataType: int64
+		formatString: 0
+		lineageTag: 34b1b9be-731d-4a25-82af-621e75497819
+		sourceLineageTag: fixed_lot
+		summarizeBy: sum
+		sourceColumn: fixed_lot
+
+		annotation SummarizationSetBy = Automatic
+
+	column maximum_level
+		dataType: int64
+		formatString: 0
+		lineageTag: ae7caed6-51f3-418a-87c1-e780df6b6a2d
+		sourceLineageTag: maximum_level
+		summarizeBy: sum
+		sourceColumn: maximum_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column deletion_indicator
+		dataType: string
+		lineageTag: ccad23ad-aa2f-4f64-920c-837b637bec3f
+		sourceLineageTag: deletion_indicator
+		summarizeBy: none
+		sourceColumn: deletion_indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_status
+		dataType: string
+		lineageTag: 42b34354-76dc-4868-a758-857ab97137fb
+		sourceLineageTag: item_status
+		summarizeBy: none
+		sourceColumn: item_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column mrp_type
+		dataType: string
+		lineageTag: d2cd57e1-cd92-45c5-911c-6fae03535dfd
+		sourceLineageTag: mrp_type
+		summarizeBy: none
+		sourceColumn: mrp_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column lot_size
+		dataType: string
+		lineageTag: f2bbe691-4a62-4fa8-9881-9fe47ead7498
+		sourceLineageTag: lot_size
+		summarizeBy: none
+		sourceColumn: lot_size
+
+		annotation SummarizationSetBy = Automatic
+
+	column movement_status
+		dataType: string
+		lineageTag: 1e24fbc6-c2e7-4b01-a1a6-3ea15d339166
+		sourceLineageTag: movement_status
+		summarizeBy: none
+		sourceColumn: movement_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column recommendation_flag
+		dataType: string
+		lineageTag: 9887b529-da42-44c9-b992-c488b010deb2
+		sourceLineageTag: recommendation_flag
+		summarizeBy: none
+		sourceColumn: recommendation_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_fact_item_site_setup = entity
+		mode: directLake
+		source
+			entityName: gold_fact_item_site_setup
+			expressionSource: 'DirectLake - lh_procurement_analytics'
+

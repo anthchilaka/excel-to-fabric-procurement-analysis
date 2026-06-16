@@ -1,0 +1,39 @@
+table gold_dim_currency
+	lineageTag: 001ebf79-bf1b-46eb-934b-058bd4eb695b
+	sourceLineageTag: [dbo].[gold_dim_currency]
+
+	column fm_cur
+		dataType: string
+		lineageTag: 7737609e-ee95-4914-bc94-d1ba8cd4af26
+		sourceLineageTag: fm_cur
+		summarizeBy: none
+		sourceColumn: fm_cur
+
+		annotation SummarizationSetBy = Automatic
+
+	column to_cur
+		dataType: string
+		lineageTag: edcf9b6c-c947-4784-b628-7067ab90fb31
+		sourceLineageTag: to_cur
+		summarizeBy: none
+		sourceColumn: to_cur
+
+		annotation SummarizationSetBy = Automatic
+
+	column rate
+		dataType: double
+		lineageTag: 8694488b-ea98-4cfe-ad3e-7cf98b37fced
+		sourceLineageTag: rate
+		summarizeBy: sum
+		sourceColumn: rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition gold_dim_currency = entity
+		mode: directLake
+		source
+			entityName: gold_dim_currency
+			expressionSource: 'DirectLake - lh_procurement_analytics'
+

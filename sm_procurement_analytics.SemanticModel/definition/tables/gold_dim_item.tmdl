@@ -1,0 +1,47 @@
+table gold_dim_item
+	lineageTag: ab717132-163f-40a5-b7d4-347ae1a5c3c6
+	sourceLineageTag: [dbo].[gold_dim_item]
+
+	column company_id
+		dataType: string
+		lineageTag: 316a82d5-eb97-498f-a867-cd36d65f4e0f
+		sourceLineageTag: company_id
+		summarizeBy: none
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column mpn
+		dataType: string
+		lineageTag: 05f3e89a-f27f-4d6d-ab3c-22725a9e82e2
+		sourceLineageTag: mpn
+		summarizeBy: none
+		sourceColumn: mpn
+
+		annotation SummarizationSetBy = Automatic
+
+	column display_description
+		dataType: string
+		lineageTag: f227c05b-5f43-455c-95b0-5d7fe059b71a
+		sourceLineageTag: display_description
+		summarizeBy: none
+		sourceColumn: display_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_no_variant_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 7d87b726-4193-415d-adc2-53c7bb1b1486
+		sourceLineageTag: item_no_variant_count
+		summarizeBy: none
+		sourceColumn: item_no_variant_count
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_item = entity
+		mode: directLake
+		source
+			entityName: gold_dim_item
+			expressionSource: 'DirectLake - lh_procurement_analytics'
+

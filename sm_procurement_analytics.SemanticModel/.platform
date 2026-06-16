@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "sm_procurement_analytics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f63a1467-146a-8966-4316-736e14056f3f"
+  }
+}

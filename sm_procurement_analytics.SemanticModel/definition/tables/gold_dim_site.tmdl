@@ -1,0 +1,56 @@
+table gold_dim_site
+	lineageTag: 1ab15480-e36c-495a-a1f5-c24ff7e9ab52
+	sourceLineageTag: [dbo].[gold_dim_site]
+
+	column site
+		dataType: string
+		lineageTag: c2feafad-37e0-4e7f-894f-4a7298d5c2b3
+		sourceLineageTag: site
+		summarizeBy: none
+		sourceColumn: site
+
+		annotation SummarizationSetBy = Automatic
+
+	column site_name
+		dataType: string
+		lineageTag: 4a7c73d9-697d-455c-877a-00a5ce5bd05c
+		sourceLineageTag: site_name
+		summarizeBy: none
+		sourceColumn: site_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column site_cur
+		dataType: string
+		lineageTag: 4a84c841-ac37-4356-a691-82d9b0f6adc0
+		sourceLineageTag: site_cur
+		summarizeBy: none
+		sourceColumn: site_cur
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 171f17e8-0dc8-4b6a-9fc6-9ec76faef6f2
+		sourceLineageTag: country_id
+		summarizeBy: sum
+		sourceColumn: country_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 280541d3-d35b-49fe-9d89-3d33b402c2b1
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_site = entity
+		mode: directLake
+		source
+			entityName: gold_dim_site
+			expressionSource: 'DirectLake - lh_procurement_analytics'
+

@@ -1,0 +1,177 @@
+table gold_fact_stock
+	lineageTag: c3f251d8-b472-46d1-9556-f9a52404ea54
+	sourceLineageTag: [dbo].[gold_fact_stock]
+
+	column site_cur
+		dataType: string
+		lineageTag: 5fe5cf46-bf1d-4b60-a039-3369c6277aac
+		sourceLineageTag: site_cur
+		summarizeBy: none
+		sourceColumn: site_cur
+
+		annotation SummarizationSetBy = Automatic
+
+	column site
+		dataType: string
+		lineageTag: a34f0857-8d6b-45bc-86d5-735aa11e1775
+		sourceLineageTag: site
+		summarizeBy: none
+		sourceColumn: site
+
+		annotation SummarizationSetBy = Automatic
+
+	column site_name
+		dataType: string
+		lineageTag: 419c9f3f-8593-4347-83d3-b8d552684381
+		sourceLineageTag: site_name
+		summarizeBy: none
+		sourceColumn: site_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_no
+		dataType: string
+		lineageTag: 1a242be9-5457-4d3b-ac6d-feaa34474681
+		sourceLineageTag: item_no
+		summarizeBy: none
+		sourceColumn: item_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_description
+		dataType: string
+		lineageTag: 66de556e-3b46-424c-886b-70e6dff7bc9a
+		sourceLineageTag: item_description
+		summarizeBy: none
+		sourceColumn: item_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Storage_Location
+		dataType: string
+		lineageTag: 5010fe35-35a2-4be0-b218-4b0edef762a4
+		sourceLineageTag: Storage_Location
+		summarizeBy: none
+		sourceColumn: Storage_Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column Base_Unit_of_Measure
+		dataType: string
+		lineageTag: 7894a6bd-5594-44d3-9f26-34829953b450
+		sourceLineageTag: Base_Unit_of_Measure
+		summarizeBy: none
+		sourceColumn: Base_Unit_of_Measure
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unrestricted
+		dataType: double
+		lineageTag: ee84d109-e588-4029-944c-068d50b4385f
+		sourceLineageTag: Unrestricted
+		summarizeBy: sum
+		sourceColumn: Unrestricted
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column In_Quality_Insp_
+		dataType: double
+		lineageTag: 65a4d060-b5d0-4e2b-8fb0-54466012e311
+		sourceLineageTag: In_Quality_Insp_
+		summarizeBy: sum
+		sourceColumn: In_Quality_Insp_
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Restricted_Use_Stock
+		dataType: double
+		lineageTag: 987796d2-8a96-4a67-b946-053274c5d566
+		sourceLineageTag: Restricted_Use_Stock
+		summarizeBy: sum
+		sourceColumn: Restricted_Use_Stock
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Blocked
+		dataType: double
+		lineageTag: 31b261f7-895e-4c34-ae04-c40aa248a9f3
+		sourceLineageTag: Blocked
+		summarizeBy: sum
+		sourceColumn: Blocked
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Value_Unrestricted
+		dataType: double
+		lineageTag: ca449af7-5a71-4457-996a-e03e1ef628ab
+		sourceLineageTag: Value_Unrestricted
+		summarizeBy: sum
+		sourceColumn: Value_Unrestricted
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Currency
+		dataType: string
+		lineageTag: 317b4cad-4c8c-4a91-9251-da9f94bee7dc
+		sourceLineageTag: Currency
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column _ingested_at
+		dataType: string
+		lineageTag: c677b099-9cb2-447c-b886-f067fb05c18a
+		sourceLineageTag: _ingested_at
+		summarizeBy: none
+		sourceColumn: _ingested_at
+
+		annotation SummarizationSetBy = Automatic
+
+	column _source_file
+		dataType: string
+		lineageTag: e72fa54a-913a-4677-8357-20fe1da9c3b9
+		sourceLineageTag: _source_file
+		summarizeBy: none
+		sourceColumn: _source_file
+
+		annotation SummarizationSetBy = Automatic
+
+	column rate_to_gbp
+		dataType: double
+		lineageTag: f401b3ae-ef7b-437d-bc6e-58cd477c1183
+		sourceLineageTag: rate_to_gbp
+		summarizeBy: sum
+		sourceColumn: rate_to_gbp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Value_Unrestricted_GBP
+		dataType: double
+		lineageTag: 9760aff8-c644-4ddb-9e8e-713351eb856d
+		sourceLineageTag: Value_Unrestricted_GBP
+		summarizeBy: sum
+		sourceColumn: Value_Unrestricted_GBP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition gold_fact_stock = entity
+		mode: directLake
+		source
+			entityName: gold_fact_stock
+			expressionSource: 'DirectLake - lh_procurement_analytics'
+

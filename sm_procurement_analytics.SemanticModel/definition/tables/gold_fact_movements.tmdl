@@ -1,0 +1,130 @@
+table gold_fact_movements
+	lineageTag: 245f80d5-32e5-4dbc-8206-5af1a7fdc016
+	sourceLineageTag: [dbo].[gold_fact_movements]
+
+	column posting_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d15250fd-bba0-4eb0-9583-5804e22d4404
+		sourceLineageTag: posting_date
+		summarizeBy: none
+		sourceColumn: posting_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column site
+		dataType: string
+		lineageTag: eb37fffb-5a4e-418e-acb4-c653195e7547
+		sourceLineageTag: site
+		summarizeBy: none
+		sourceColumn: site
+
+		annotation SummarizationSetBy = Automatic
+
+	column mt
+		dataType: string
+		lineageTag: a35e2949-3bbb-4905-84bd-c7ccb2162341
+		sourceLineageTag: mt
+		summarizeBy: none
+		sourceColumn: mt
+
+		annotation SummarizationSetBy = Automatic
+
+	column mt_text
+		dataType: string
+		lineageTag: bebf26e6-5baa-4cac-8e06-d8673dc7fb07
+		sourceLineageTag: mt_text
+		summarizeBy: none
+		sourceColumn: mt_text
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_document
+		dataType: string
+		lineageTag: f0f08b4e-64ea-4386-a71b-6cf0d2370d51
+		sourceLineageTag: item_document
+		summarizeBy: none
+		sourceColumn: item_document
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_no
+		dataType: string
+		lineageTag: 94000fe1-b77a-4b84-b209-b49cdeb2d4a4
+		sourceLineageTag: item_no
+		summarizeBy: none
+		sourceColumn: item_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_description
+		dataType: string
+		lineageTag: 7ff76d39-06c9-4e9f-a8d4-7f452d8c51b8
+		sourceLineageTag: item_description
+		summarizeBy: none
+		sourceColumn: item_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 59e244dd-eed1-4330-b69d-10892a6ce5bc
+		sourceLineageTag: quantity
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column base_uom
+		dataType: string
+		lineageTag: 90a3baa0-dcb1-4f6f-98bb-5262a8b31ec4
+		sourceLineageTag: base_uom
+		summarizeBy: none
+		sourceColumn: base_uom
+
+		annotation SummarizationSetBy = Automatic
+
+	column user_name
+		dataType: string
+		lineageTag: a09b3f3b-e458-4010-b988-96e0c2e2fe94
+		sourceLineageTag: user_name
+		summarizeBy: none
+		sourceColumn: user_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column storage_location
+		dataType: string
+		lineageTag: 0e426182-744a-4b1d-8699-ec9f15e4124d
+		sourceLineageTag: storage_location
+		summarizeBy: none
+		sourceColumn: storage_location
+
+		annotation SummarizationSetBy = Automatic
+
+	column Purchase_order
+		dataType: string
+		lineageTag: f4837087-2643-41e4-9b12-b8c46855fede
+		sourceLineageTag: Purchase_order
+		summarizeBy: none
+		sourceColumn: Purchase_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column _is_unparsed_date
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f6174883-77da-42fe-a19e-a84b183dddef
+		sourceLineageTag: _is_unparsed_date
+		summarizeBy: none
+		sourceColumn: _is_unparsed_date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_fact_movements = entity
+		mode: directLake
+		source
+			entityName: gold_fact_movements
+			expressionSource: 'DirectLake - lh_procurement_analytics'
+
