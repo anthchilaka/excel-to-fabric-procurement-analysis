@@ -33,13 +33,15 @@ table 'Movement Classification'
 				    gold_fact_item_site_setup[movement_status] = "Non-moving"
 				)
 
-	column Name
+	column 'Movement Class'
 		dataType: string
+		lineageTag: ab71729b-b25d-418e-b47b-4d8fc6866b04
 		sourceColumn: Name
 		sortByColumn: Ordinal
 
 	column Ordinal
 		dataType: int64
 		isHidden
+		lineageTag: 238fe7e6-b1ba-4f77-b5bf-96e85249fb9a
 		sourceColumn: Ordinal
 

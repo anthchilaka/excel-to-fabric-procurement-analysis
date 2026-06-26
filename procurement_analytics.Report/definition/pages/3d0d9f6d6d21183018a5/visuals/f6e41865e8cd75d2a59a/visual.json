@@ -1,0 +1,168 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "f6e41865e8cd75d2a59a",
+  "position": {
+    "x": 423.66900858704139,
+    "y": 73.942232630757218,
+    "z": 3,
+    "height": 149.88290398126463,
+    "width": 708.44652615144423,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dim_site"
+                    }
+                  },
+                  "Property": "site"
+                }
+              },
+              "queryRef": "gold_dim_site.site",
+              "nativeQueryRef": "site"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_item_site_setup"
+                    }
+                  },
+                  "Property": "item_no"
+                }
+              },
+              "queryRef": "gold_fact_item_site_setup.item_no",
+              "nativeQueryRef": "item_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_item_site_setup"
+                    }
+                  },
+                  "Property": "reorder_point"
+                }
+              },
+              "queryRef": "gold_fact_item_site_setup.reorder_point",
+              "nativeQueryRef": "reorder_point"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measures_overview"
+                    }
+                  },
+                  "Property": "Currency Fluctuation Impact"
+                }
+              },
+              "queryRef": "measures_overview.Currency Fluctuation Impact",
+              "nativeQueryRef": "Currency Fluctuation Impact"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measures_overview"
+                    }
+                  },
+                  "Property": "Supplier Performance (Reversal Rate Proxy)"
+                }
+              },
+              "queryRef": "measures_overview.Supplier Performance (Reversal Rate Proxy)",
+              "nativeQueryRef": "Supplier Performance (Reversal Rate Proxy)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "342f08e1b4d515636c51",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dim_site"
+              }
+            },
+            "Property": "site"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "edc99ee5e23ad23cf448",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_fact_item_site_setup"
+              }
+            },
+            "Property": "item_no"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8a1526facbd7f72016dc",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_fact_item_site_setup"
+              }
+            },
+            "Property": "reorder_point"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "27f6d0dcc806632f08ff",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measures_overview"
+              }
+            },
+            "Property": "Currency Fluctuation Impact"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0b6a7a48c6e09e88caa7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measures_overview"
+              }
+            },
+            "Property": "Supplier Performance (Reversal Rate Proxy)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

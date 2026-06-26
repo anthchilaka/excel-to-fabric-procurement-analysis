@@ -1,0 +1,265 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "d3f92e1aa610c8a62596",
+  "position": {
+    "x": 19.984387197501952,
+    "y": 386.69789227166279,
+    "z": 0,
+    "height": 312.75565964090555,
+    "width": 1239.032006245121,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dim_site"
+                    }
+                  },
+                  "Property": "site"
+                }
+              },
+              "queryRef": "gold_dim_site.site",
+              "nativeQueryRef": "site"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_item_site_setup"
+                    }
+                  },
+                  "Property": "item_no"
+                }
+              },
+              "queryRef": "gold_fact_item_site_setup.item_no",
+              "nativeQueryRef": "item_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dim_item"
+                    }
+                  },
+                  "Property": "display_description"
+                }
+              },
+              "queryRef": "gold_dim_item.display_description",
+              "nativeQueryRef": "display_description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_item_site_setup"
+                    }
+                  },
+                  "Property": "reorder_point"
+                }
+              },
+              "queryRef": "gold_fact_item_site_setup.reorder_point",
+              "nativeQueryRef": "reorder point",
+              "displayName": "reorder point"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_item_site_setup"
+                    }
+                  },
+                  "Property": "maximum_level"
+                }
+              },
+              "queryRef": "gold_fact_item_site_setup.maximum_level",
+              "nativeQueryRef": "Max Level",
+              "displayName": "Max Level"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_item_site_setup"
+                    }
+                  },
+                  "Property": "item_status"
+                }
+              },
+              "queryRef": "gold_fact_item_site_setup.item_status",
+              "nativeQueryRef": "item_status",
+              "displayName": "item_status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_stock"
+                    }
+                  },
+                  "Property": "Value_Unrestricted"
+                }
+              },
+              "queryRef": "gold_fact_stock.Value_Unrestricted",
+              "nativeQueryRef": "Value_Unrestricted",
+              "displayName": "Value_Unrestricted"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Status Column"
+                    }
+                  },
+                  "Property": "Status Column"
+                }
+              },
+              "index": 5,
+              "length": 1
+            },
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Currency Display"
+                    }
+                  },
+                  "Property": "Currency Display"
+                }
+              },
+              "index": 6,
+              "length": 1
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "131ba55742317011a426",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dim_site"
+              }
+            },
+            "Property": "site"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "12f3a80632e3958cd86d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_fact_item_site_setup"
+              }
+            },
+            "Property": "item_no"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2f3b55401f15a6f5a222",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dim_item"
+              }
+            },
+            "Property": "display_description"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "66f6f67cc00efa99d367",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_fact_item_site_setup"
+              }
+            },
+            "Property": "reorder_point"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "af5da5543eb011c3e208",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_fact_item_site_setup"
+              }
+            },
+            "Property": "maximum_level"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3050c334f5b596a9deee",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_fact_item_site_setup"
+              }
+            },
+            "Property": "item_status"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "cada29c541fa5e8f9fd3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_fact_stock"
+              }
+            },
+            "Property": "Value_Unrestricted"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -21,11 +21,14 @@ ref table gold_dim_site
 ref table gold_bridge_item
 ref table gold_dim_item
 ref table gold_dim_currency
-ref table gold_fact_stock
 ref table gold_fact_movements
 ref table measures_opportunity
 ref table measures_overview
 ref table 'Movement Classification'
 ref table 'Status Column'
 ref table 'Currency Display'
+ref table gold_fact_stock
+
+ref role CEO
+ref role 'O Ring Site Manager'
 

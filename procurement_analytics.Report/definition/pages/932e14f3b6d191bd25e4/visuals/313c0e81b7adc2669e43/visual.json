@@ -1,0 +1,77 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "313c0e81b7adc2669e43",
+  "position": {
+    "x": 1115.1,
+    "y": 40.5,
+    "z": 4002,
+    "height": 180,
+    "width": 154.79999999999998,
+    "tabOrder": 4002
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_item_site_setup"
+                    }
+                  },
+                  "Property": "movement_status"
+                }
+              },
+              "queryRef": "gold_fact_item_site_setup.movement_status",
+              "nativeQueryRef": "movement_status",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Basic'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8b90969e76ddd0042fcd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_fact_item_site_setup"
+              }
+            },
+            "Property": "movement_status"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

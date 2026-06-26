@@ -1,0 +1,222 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "dfa8b3c4e23a19478989",
+  "position": {
+    "x": 19.984387197501952,
+    "y": 419.672131147541,
+    "z": 0,
+    "height": 279.78142076502735,
+    "width": 1244.0281030444964,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_item_site_setup"
+                    }
+                  },
+                  "Property": "item_no"
+                }
+              },
+              "queryRef": "gold_fact_item_site_setup.item_no",
+              "nativeQueryRef": "item_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dim_site"
+                    }
+                  },
+                  "Property": "site"
+                }
+              },
+              "queryRef": "gold_dim_site.site",
+              "nativeQueryRef": "site"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_item_site_setup"
+                    }
+                  },
+                  "Property": "recommendation_flag"
+                }
+              },
+              "queryRef": "gold_fact_item_site_setup.recommendation_flag",
+              "nativeQueryRef": "recommendation_flag"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_item_site_setup"
+                    }
+                  },
+                  "Property": "item_status"
+                }
+              },
+              "queryRef": "gold_fact_item_site_setup.item_status",
+              "nativeQueryRef": "item_status",
+              "displayName": "item_status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_item_site_setup"
+                    }
+                  },
+                  "Property": "movement_status"
+                }
+              },
+              "queryRef": "gold_fact_item_site_setup.movement_status",
+              "nativeQueryRef": "movement_status",
+              "displayName": "movement_status"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measures_overview"
+                    }
+                  },
+                  "Property": "Currency Value Display "
+                }
+              },
+              "queryRef": "measures_overview.Currency Value Display ",
+              "nativeQueryRef": "Value (£)",
+              "displayName": "Value (£)"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Status Column"
+                    }
+                  },
+                  "Property": "Status Column"
+                }
+              },
+              "index": 3,
+              "length": 2
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b1327d89c6e3bb70952e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_fact_item_site_setup"
+              }
+            },
+            "Property": "item_no"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2e732eb40b0c63a822a6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dim_site"
+              }
+            },
+            "Property": "site"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9d838bba02ec96087de0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_fact_item_site_setup"
+              }
+            },
+            "Property": "recommendation_flag"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "133936740c09e9206933",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_fact_item_site_setup"
+              }
+            },
+            "Property": "item_status"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "501cff271236e5d30270",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_fact_item_site_setup"
+              }
+            },
+            "Property": "movement_status"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9be653ab78ab406e11d8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measures_overview"
+              }
+            },
+            "Property": "Currency Value Display "
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

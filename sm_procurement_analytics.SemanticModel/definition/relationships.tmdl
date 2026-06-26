@@ -8,11 +8,6 @@ relationship 7053bab6-d71c-fe68-13b8-1594b1c5120c
 	fromColumn: gold_fact_movements.item_no
 	toColumn: gold_bridge_item.item_no
 
-relationship e49c027c-86c3-7f2c-da95-39e2095606f7
-	toCardinality: many
-	fromColumn: gold_fact_stock.item_no
-	toColumn: gold_bridge_item.item_no
-
 relationship 0da43e4e-c0f0-d16d-3992-02af135065c2
 	fromColumn: gold_bridge_item.company_id
 	toColumn: gold_dim_item.company_id
@@ -25,11 +20,16 @@ relationship 211f4d16-d274-d7e4-cf08-580eb29bb7a3
 	fromColumn: gold_fact_movements.site
 	toColumn: gold_dim_site.site
 
-relationship 57f0c408-a808-bb54-dfe0-52721fa94d60
-	fromColumn: gold_fact_stock.site
-	toColumn: gold_dim_site.site
-
 relationship 325749cc-913b-19a7-c480-1c099b374eda
 	fromColumn: gold_fact_movements.posting_date
 	toColumn: gold_dim_date.date
+
+relationship 0dd2bc09-b33d-75d6-690d-492e24daf7cf
+	toCardinality: many
+	fromColumn: gold_bridge_item.item_no
+	toColumn: gold_fact_stock.item_no
+
+relationship d8a27324-1733-3df8-2c46-11cfe33921ea
+	fromColumn: gold_fact_stock.site
+	toColumn: gold_dim_site.site
 

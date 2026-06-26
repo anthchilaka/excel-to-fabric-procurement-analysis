@@ -1,0 +1,108 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "6cf35558b9749d0535c0",
+  "position": {
+    "x": 92.927400468384079,
+    "y": 63.950039032006245,
+    "z": 4,
+    "height": 115.90944574551132,
+    "width": 180.85870413739266,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measures_overview"
+                    }
+                  },
+                  "Property": "Currency Fluctuation Impact"
+                }
+              },
+              "queryRef": "measures_overview.Currency Fluctuation Impact",
+              "nativeQueryRef": "Currency Fluctuation Impact"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "measures_overview"
+                  }
+                },
+                "Property": "Currency Fluctuation Impact"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measures_overview.Currency Fluctuation Impact"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measures_overview.Currency Fluctuation Impact"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5ab51537eb33a9ad1f8a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measures_overview"
+              }
+            },
+            "Property": "Currency Fluctuation Impact"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

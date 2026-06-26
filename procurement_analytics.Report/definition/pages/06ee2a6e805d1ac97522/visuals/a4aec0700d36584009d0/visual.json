@@ -1,0 +1,132 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "a4aec0700d36584009d0",
+  "position": {
+    "x": 762.40437158469945,
+    "y": 209.8360655737705,
+    "z": 14,
+    "height": 299.76580796252927,
+    "width": 456.64324746291959,
+    "tabOrder": 14
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Movement Classification"
+                    }
+                  },
+                  "Property": "Movement Class"
+                }
+              },
+              "queryRef": "Movement Classification.Movement Class",
+              "nativeQueryRef": "Movement Class",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measures_opportunity"
+                    }
+                  },
+                  "Property": "Item Site Count"
+                }
+              },
+              "queryRef": "measures_opportunity.Item Site Count",
+              "nativeQueryRef": "Item Site Count"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Movement Classification Distribution'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d5c49b0d7a78ae07e467",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Movement Classification"
+              }
+            },
+            "Property": "Movement Class"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "382e9239c63c6a112c5a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measures_opportunity"
+              }
+            },
+            "Property": "Item Site Count"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,13 +1,48 @@
 table 'Status Column'
-	lineageTag: a5e94d75-91b2-4630-b49e-625b0a0b3ffe
+	lineageTag: e993efb4-b8ad-45ee-ade9-6a4f5e466c8c
 
-	defaultDetailRowsDefinition =
-			{
-			    ("Item Status (MS)", NAMEOF( gold_fact_item_site_setup[item_status] ), 0),
-			    ("Movement Status (Recomputed)", NAMEOF( gold_fact_item_site_setup[movement_status] ), 1)
-			}
+	column 'Status Column'
+		lineageTag: b80c9381-6dc4-45da-9a6f-e4c0556d250e
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Status Column Order'
 
-	partition 'New Table' = query
-		source
-			dataSource: 'New Provider Data Source'
+		relatedColumnDetails
+			groupByColumn: 'Status Column Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status Column Fields'
+		isHidden
+		lineageTag: 7c5d13ae-0ad8-4b3b-b494-b6d0b137d034
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Status Column Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status Column Order'
+		isHidden
+		formatString: 0
+		lineageTag: 74de380f-b364-4f89-b068-592d40c3d7e6
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Status Column' = calculated
+		mode: import
+		source =
+				{
+				    ("item_status", NAMEOF('gold_fact_item_site_setup'[item_status]), 0),
+				    ("movement_status", NAMEOF('gold_fact_item_site_setup'[movement_status]), 1)
+				}
+
+	annotation PBI_Id = 5326d42c1db041a5bbaed7c2808bb4a5
 

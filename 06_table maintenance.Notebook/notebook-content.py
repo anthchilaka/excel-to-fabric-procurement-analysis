@@ -88,3 +88,19 @@ spark.createDataFrame([Row(id=1)]).write.format("delta").mode("overwrite").saveA
 # META   "language": "python",
 # META   "language_group": "synapse_pyspark"
 # META }
+
+# CELL ********************
+
+# MAGIC %%sql
+# MAGIC SELECT DISTINCT f.site, f.item_no
+# MAGIC FROM gold_fact_item_site_setup f
+# MAGIC INNER JOIN gold_bridge_item b
+# MAGIC     ON f.item_no = b.item_no
+# MAGIC WHERE b.company_id = 'VVX0000315'
+
+# METADATA ********************
+
+# META {
+# META   "language": "sparksql",
+# META   "language_group": "synapse_pyspark"
+# META }

@@ -1,0 +1,116 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "f1c2ae585d15b7822927",
+  "position": {
+    "x": 92.927400468384079,
+    "y": 63.950039032006245,
+    "z": 13,
+    "height": 115.90944574551132,
+    "width": 180.85870413739266,
+    "tabOrder": 13
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measures_opportunity"
+                    }
+                  },
+                  "Property": "Items Flagged for Review"
+                }
+              },
+              "queryRef": "measures_opportunity.Items Flagged for Review",
+              "nativeQueryRef": "review items",
+              "displayName": "review items"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "measures_opportunity"
+                  }
+                },
+                "Property": "Items Flagged for Review"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            },
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measures_opportunity.Items Flagged for Review"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "measures_opportunity.Items Flagged for Review"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "fe0448b20a24030c7976",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "measures_opportunity"
+              }
+            },
+            "Property": "Items Flagged for Review"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

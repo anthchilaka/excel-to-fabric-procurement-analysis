@@ -1,10 +1,10 @@
 table gold_fact_stock
-	lineageTag: c3f251d8-b472-46d1-9556-f9a52404ea54
+	lineageTag: 266ca7e5-be17-476f-a458-3b77a5724894
 	sourceLineageTag: [dbo].[gold_fact_stock]
 
 	column site_cur
 		dataType: string
-		lineageTag: 5fe5cf46-bf1d-4b60-a039-3369c6277aac
+		lineageTag: f3fa82d0-b2fb-4d2b-b76c-09abaf4bb625
 		sourceLineageTag: site_cur
 		summarizeBy: none
 		sourceColumn: site_cur
@@ -13,7 +13,7 @@ table gold_fact_stock
 
 	column site
 		dataType: string
-		lineageTag: a34f0857-8d6b-45bc-86d5-735aa11e1775
+		lineageTag: ce8ee1e0-e404-4ba3-a5fe-94eb2dc5a520
 		sourceLineageTag: site
 		summarizeBy: none
 		sourceColumn: site
@@ -22,7 +22,7 @@ table gold_fact_stock
 
 	column site_name
 		dataType: string
-		lineageTag: 419c9f3f-8593-4347-83d3-b8d552684381
+		lineageTag: 15019271-318f-4e1d-8510-243b9cc7dc81
 		sourceLineageTag: site_name
 		summarizeBy: none
 		sourceColumn: site_name
@@ -31,7 +31,7 @@ table gold_fact_stock
 
 	column item_no
 		dataType: string
-		lineageTag: 1a242be9-5457-4d3b-ac6d-feaa34474681
+		lineageTag: 86e9b6c9-1be1-4745-89c7-2b30da03fedc
 		sourceLineageTag: item_no
 		summarizeBy: none
 		sourceColumn: item_no
@@ -40,7 +40,7 @@ table gold_fact_stock
 
 	column item_description
 		dataType: string
-		lineageTag: 66de556e-3b46-424c-886b-70e6dff7bc9a
+		lineageTag: 7b791cb2-8eef-407b-8a2b-64bfb9d630a2
 		sourceLineageTag: item_description
 		summarizeBy: none
 		sourceColumn: item_description
@@ -49,7 +49,7 @@ table gold_fact_stock
 
 	column Storage_Location
 		dataType: string
-		lineageTag: 5010fe35-35a2-4be0-b218-4b0edef762a4
+		lineageTag: 41548bf1-45f9-4881-bac0-53ab340f3233
 		sourceLineageTag: Storage_Location
 		summarizeBy: none
 		sourceColumn: Storage_Location
@@ -58,7 +58,7 @@ table gold_fact_stock
 
 	column Base_Unit_of_Measure
 		dataType: string
-		lineageTag: 7894a6bd-5594-44d3-9f26-34829953b450
+		lineageTag: fcbaac6c-1d77-44a2-b21b-1b42872ac597
 		sourceLineageTag: Base_Unit_of_Measure
 		summarizeBy: none
 		sourceColumn: Base_Unit_of_Measure
@@ -67,7 +67,7 @@ table gold_fact_stock
 
 	column Unrestricted
 		dataType: double
-		lineageTag: ee84d109-e588-4029-944c-068d50b4385f
+		lineageTag: 15a9556a-c71c-4f8d-8b36-01f209f9d403
 		sourceLineageTag: Unrestricted
 		summarizeBy: sum
 		sourceColumn: Unrestricted
@@ -78,7 +78,7 @@ table gold_fact_stock
 
 	column In_Quality_Insp_
 		dataType: double
-		lineageTag: 65a4d060-b5d0-4e2b-8fb0-54466012e311
+		lineageTag: 7dc76a27-f0c1-48ac-9cd4-fc0612b2af57
 		sourceLineageTag: In_Quality_Insp_
 		summarizeBy: sum
 		sourceColumn: In_Quality_Insp_
@@ -89,7 +89,7 @@ table gold_fact_stock
 
 	column Restricted_Use_Stock
 		dataType: double
-		lineageTag: 987796d2-8a96-4a67-b946-053274c5d566
+		lineageTag: f554eb68-1c1d-430d-b3c6-51a5be225797
 		sourceLineageTag: Restricted_Use_Stock
 		summarizeBy: sum
 		sourceColumn: Restricted_Use_Stock
@@ -100,7 +100,7 @@ table gold_fact_stock
 
 	column Blocked
 		dataType: double
-		lineageTag: 31b261f7-895e-4c34-ae04-c40aa248a9f3
+		lineageTag: 201ef0f2-b3af-4a4a-ba43-e573cf63d15b
 		sourceLineageTag: Blocked
 		summarizeBy: sum
 		sourceColumn: Blocked
@@ -111,7 +111,7 @@ table gold_fact_stock
 
 	column Value_Unrestricted
 		dataType: double
-		lineageTag: ca449af7-5a71-4457-996a-e03e1ef628ab
+		lineageTag: cb6e7509-b74a-489a-a5e4-51a30e4dd696
 		sourceLineageTag: Value_Unrestricted
 		summarizeBy: sum
 		sourceColumn: Value_Unrestricted
@@ -122,7 +122,7 @@ table gold_fact_stock
 
 	column Currency
 		dataType: string
-		lineageTag: 317b4cad-4c8c-4a91-9251-da9f94bee7dc
+		lineageTag: 2e56bd85-bc29-4dd4-9eb3-453a989aaaf5
 		sourceLineageTag: Currency
 		summarizeBy: none
 		sourceColumn: Currency
@@ -131,7 +131,7 @@ table gold_fact_stock
 
 	column _ingested_at
 		dataType: string
-		lineageTag: c677b099-9cb2-447c-b886-f067fb05c18a
+		lineageTag: ed050485-fadd-41ea-b84e-46e40f502264
 		sourceLineageTag: _ingested_at
 		summarizeBy: none
 		sourceColumn: _ingested_at
@@ -140,7 +140,7 @@ table gold_fact_stock
 
 	column _source_file
 		dataType: string
-		lineageTag: e72fa54a-913a-4677-8357-20fe1da9c3b9
+		lineageTag: 35d2ffed-7edf-4843-b540-e5d30339a77d
 		sourceLineageTag: _source_file
 		summarizeBy: none
 		sourceColumn: _source_file
@@ -149,7 +149,7 @@ table gold_fact_stock
 
 	column rate_to_gbp
 		dataType: double
-		lineageTag: f401b3ae-ef7b-437d-bc6e-58cd477c1183
+		lineageTag: 62708029-89f6-47dd-9f40-a75158e115c2
 		sourceLineageTag: rate_to_gbp
 		summarizeBy: sum
 		sourceColumn: rate_to_gbp
@@ -160,7 +160,7 @@ table gold_fact_stock
 
 	column Value_Unrestricted_GBP
 		dataType: double
-		lineageTag: 9760aff8-c644-4ddb-9e8e-713351eb856d
+		lineageTag: 272c2c26-6a38-48d2-b852-d820e6860ac0
 		sourceLineageTag: Value_Unrestricted_GBP
 		summarizeBy: sum
 		sourceColumn: Value_Unrestricted_GBP
@@ -168,6 +168,16 @@ table gold_fact_stock
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column maximum_level
+		dataType: int64
+		formatString: 0
+		lineageTag: 5834d9a1-dc26-4d71-ba82-ddd0567af47f
+		sourceLineageTag: maximum_level
+		summarizeBy: sum
+		sourceColumn: maximum_level
+
+		annotation SummarizationSetBy = Automatic
 
 	partition gold_fact_stock = entity
 		mode: directLake

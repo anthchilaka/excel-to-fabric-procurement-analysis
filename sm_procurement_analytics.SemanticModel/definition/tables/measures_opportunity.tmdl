@@ -7,11 +7,11 @@ table measures_opportunity
 			VAR IssuedQty =
 			    CALCULATE(
 			        SUMX( gold_fact_movements, ABS( gold_fact_movements[quantity] ) ),
-			        gold_fact_movements[mt] IN { 411, 471 }
+			        gold_fact_movements[mt] IN { "411", "471" }
 			    )
-			VAR AvgStockQty = AVERAGE( gold_fact_stock[Unrestricted] )
+			VAR TotalStockQty = SUM( gold_fact_stock[Unrestricted] )
 			RETURN
-			    DIVIDE( IssuedQty, AvgStockQty )
+			    DIVIDE( IssuedQty, TotalStockQty )
 		formatString: 0
 		lineageTag: f74fcbff-8308-4d83-b570-da640fcc33aa
 
@@ -27,6 +27,7 @@ table measures_opportunity
 			VAR TotalItems = DISTINCTCOUNT( gold_fact_stock[item_no] )
 			RETURN
 			    DIVIDE( ItemsAtZero, TotalItems )
+		formatString: 0.0%
 		lineageTag: 91da5353-0521-4288-b0a7-a8d442cc00cf
 
 		changedProperty = Name
@@ -43,29 +44,47 @@ table measures_opportunity
 			VAR TotalRows = COUNTROWS( gold_fact_item_site_setup )
 			RETURN
 			    1 - DIVIDE( FlaggedRows, TotalRows )
+		formatString: 0.0%
 		lineageTag: 3fe490c2-d4dd-47fe-bed7-3b2005708498
 
 		changedProperty = Name
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure DIO =
-			
-			VAR AvgStockValue = AVERAGE( gold_fact_stock[Value_Unrestricted_GBP] )
-			VAR DailyIssueValue =
-			    DIVIDE(
-			        CALCULATE(
-			            SUMX( gold_fact_movements, ABS( gold_fact_movements[quantity] ) ),
-			            gold_fact_movements[mt] IN { 411, 471 }
-			        ),
-			        365
-			    )
-			RETURN
-			    DIVIDE( AvgStockValue, DailyIssueValue )
-		formatString: 0
-		lineageTag: f5b243ff-3139-4722-adb0-acb59e693d96
+	measure Unrestricted = SUM(gold_fact_stock[Unrestricted])
+		lineageTag: da900c84-8831-4acb-91a6-e5569a0cd15e
 
 		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Issue Qty (411 471)' =
+			
+			CALCULATE(
+			    SUM( gold_fact_movements[quantity] ),
+			    gold_fact_movements[mt] IN { "411", "471" }
+			)
+		formatString: 0
+		lineageTag: 6b1a839a-a1e3-46b5-a765-46bd17d6d78c
+
+		changedProperty = Name
+
+	measure 'Items Flagged for Review' =
+			
+			CALCULATE(
+			    COUNTROWS( gold_fact_item_site_setup ),
+			    gold_fact_item_site_setup[recommendation_flag] <> "No flag"
+			)
+		formatString: #,##0
+		lineageTag: ebf6d6de-f5d6-4d6d-b7f0-88e37e7b1663
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Item Site Count' = COUNTROWS( gold_fact_item_site_setup )
+		formatString: #,##0
+		lineageTag: f23981c2-8869-44d1-ab34-bf177f35c14d
 
 	column id
 		dataType: int64

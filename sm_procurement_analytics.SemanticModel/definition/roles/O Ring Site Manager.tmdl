@@ -1,0 +1,7 @@
+role 'O Ring Site Manager'
+	modelPermission: read
+
+	tablePermission gold_dim_site = [site] = "GKAP2"
+
+	annotation PBI_Id = 6edc827f71aa459493897fafe9b09c52
+

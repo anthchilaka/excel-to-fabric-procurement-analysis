@@ -1,13 +1,48 @@
 table 'Currency Display'
-	lineageTag: 913987f4-e37d-41bb-a9a0-37df65187db0
+	lineageTag: 9344768f-09ce-403e-a422-1c80aad102ea
 
-	defaultDetailRowsDefinition =
-			{
-			    ("Native", NAMEOF( gold_fact_stock[Value_Unrestricted] ), 0),
-			    ("Normalized (GBP)", NAMEOF( gold_fact_stock[Value_Unrestricted_GBP] ), 1)
-			}
+	column 'Currency Display'
+		lineageTag: 1502dc2a-506e-41c6-829f-86378424d18f
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Currency Display Order'
 
-	partition 'New Table' = query
-		source
-			dataSource: 'New Provider Data Source'
+		relatedColumnDetails
+			groupByColumn: 'Currency Display Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Currency Display Fields'
+		isHidden
+		lineageTag: e6fc876d-bc5b-4d9d-bf49-fe7b092a62cf
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Currency Display Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Currency Display Order'
+		isHidden
+		formatString: 0
+		lineageTag: 02b4bde6-acb9-4971-8b6d-d7c47c008cb3
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Currency Display' = calculated
+		mode: import
+		source =
+				{
+				    ("Value_Unrestricted", NAMEOF('gold_fact_stock'[Value_Unrestricted]), 0),
+				    ("Value_Unrestricted_GBP", NAMEOF('gold_fact_stock'[Value_Unrestricted_GBP]), 1)
+				}
+
+	annotation PBI_Id = 70a9233c903e41949be7ff09634f5819
 

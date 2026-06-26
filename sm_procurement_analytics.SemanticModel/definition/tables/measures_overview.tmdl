@@ -3,15 +3,13 @@ table measures_overview
 	sourceLineageTag: [dbo].[measures_overview]
 
 	measure 'Excess Inventory Rate' =
-			
-			VAR ExcessUnits =
-			    SUMX(
-			        NATURALINNERJOIN( gold_fact_stock, gold_fact_item_site_setup ),
-			        MAX( 0, gold_fact_stock[Unrestricted] - gold_fact_item_site_setup[maximum_level] )
-			    )
-			VAR TotalUnits = SUM( gold_fact_stock[Unrestricted] )
-			RETURN
-			    DIVIDE( ExcessUnits, TotalUnits )
+			DIVIDE(
+			    CALCULATE(
+			        COUNTROWS( gold_fact_item_site_setup ),
+			        gold_fact_item_site_setup[maximum_level] > 0
+			    ),
+			    COUNTROWS( gold_fact_item_site_setup )
+			)
 		lineageTag: aaa2957a-8260-4174-86bf-6e4bf0b80975
 
 		changedProperty = Name
@@ -20,17 +18,10 @@ table measures_overview
 
 	measure 'Reorder Frequency' =
 			
-			VAR ItemsBelowReorder =
-			    CALCULATE(
-			        DISTINCTCOUNT( gold_fact_item_site_setup[item_no] ),
-			        FILTER(
-			            gold_fact_item_site_setup,
-			            gold_fact_item_site_setup[reorder_point] > 0
-			        ),
-			        TREATAS( VALUES( gold_fact_stock[item_no] ), gold_fact_item_site_setup[item_no] )
-			    )
-			RETURN
-			    ItemsBelowReorder
+			CALCULATE(
+			    COUNTROWS( gold_fact_item_site_setup ),
+			    gold_fact_item_site_setup[reorder_point] > 0
+			)
 		formatString: 0
 		lineageTag: 8ce20bde-8a55-432a-9b03-edd939d75ae5
 
@@ -38,19 +29,11 @@ table measures_overview
 
 	measure 'Currency Fluctuation Impact' =
 			
-			VAR NativeValue = SUM( gold_fact_stock[Value_Unrestricted] )
 			VAR NormalizedValue = SUM( gold_fact_stock[Value_Unrestricted_GBP] )
 			RETURN
-			    NormalizedValue - NativeValue
+			    IF( ISBLANK( NormalizedValue ), "Rate not available", NormalizedValue )
+		formatString: £#,##0.00
 		lineageTag: 0301e669-1a57-4873-93bb-dfb5aa3aa724
-
-		formatStringDefinition =
-				SWITCH(
-				    SELECTEDVALUE( 'Currency Display'[Currency Display] ),
-				    "Native", "£#,##0.00",
-				    "Normalized (GBP)", "£#,##0.00",
-				    "£#,##0.00"
-				)
 
 		changedProperty = Name
 
@@ -61,12 +44,12 @@ table measures_overview
 			VAR Reversals =
 			    CALCULATE(
 			        COUNTROWS( gold_fact_movements ),
-			        gold_fact_movements[mt] IN { 312, 762 }
+			        gold_fact_movements[mt] IN { "312", "762" }
 			    )
 			VAR Receipts =
 			    CALCULATE(
 			        COUNTROWS( gold_fact_movements ),
-			        gold_fact_movements[mt] = 311
+			        gold_fact_movements[mt] = "311"
 			    )
 			RETURN
 			    DIVIDE( Reversals, Receipts )
@@ -74,6 +57,19 @@ table measures_overview
 		lineageTag: e1eb285a-a368-47cb-8cc6-38ecb53ba448
 
 		changedProperty = Name
+
+	measure 'Currency Value Display ' =
+			SWITCH(
+			    SELECTEDVALUE( 'Currency Display'[Currency Display Order] ),
+			    1, SUM( gold_fact_stock[Value_Unrestricted] ),
+			    2, SUM( gold_fact_stock[Value_Unrestricted_GBP] ),
+			    SUM( gold_fact_stock[Value_Unrestricted_GBP] )
+			)
+		formatString: #,##0.00
+		lineageTag: 7d6894d6-196f-411f-bfa8-963ba4190c30
+
+	measure 'test reorder' = MAX( gold_fact_item_site_setup[reorder_point] )
+		lineageTag: 43684482-c5c4-4f40-804a-4d046d7f1697
 
 	column id
 		dataType: int64

@@ -1,0 +1,5 @@
+role CEO
+	modelPermission: read
+
+	annotation PBI_Id = d778fde2967b4363a91f860148bc2148
+

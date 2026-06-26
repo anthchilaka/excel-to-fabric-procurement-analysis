@@ -123,6 +123,18 @@ table gold_fact_item_site_setup
 
 		annotation SummarizationSetBy = Automatic
 
+	column is_excess
+		dataType: int64
+		lineageTag: db73b288-d2ab-4e7b-a9f4-ef5bf3c85035
+		sourceColumn: is_excess
+
+	/// Aggregated GBP stock value at item_no × site grain (pre-computed in notebook 05)
+	column total_value_unrestricted_gbp
+		dataType: decimal
+		formatString: £#,##0.00
+		lineageTag: 211266af-2e0a-495c-b73d-407ab58fb404
+		sourceColumn: total_value_unrestricted_gbp
+
 	partition gold_fact_item_site_setup = entity
 		mode: directLake
 		source
